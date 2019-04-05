@@ -25,9 +25,12 @@ class Song
   end
 
   def self.genre_count
-    @@genre_count = Hash[@@genres.collect {|x| [x, 1]}]
+    @@genre_count = Hash[@@genres.uniq.collect {|x| [x, 1]}]
     @@genres.each do |genre|
       if genre_count[genre]
+        genre_count[genre] += 1
+      end
+    end
   end
 
   def self.artist_count
