@@ -25,11 +25,13 @@ class Song
   end
 
   def self.genre_count
-    @@genre_count = Hash[@@genres.uniq.collect {|x| [x, 1]}]
-    binding.pry
+    @@genre_count = {}
+    #Hash[@@genres.uniq.collect {|x| [x, 1]}]
     @@genres.each do |genre|
-      if genre_count[genre]
-        genre_count[genre] += 1
+      if @@genre_count.include?(genre) == true
+         genre_count[genre] += 1
+       else
+         genre_count[genre] = 1
       end
     end
   end
