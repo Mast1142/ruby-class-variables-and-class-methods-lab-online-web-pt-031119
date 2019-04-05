@@ -29,9 +29,9 @@ class Song
     #Hash[@@genres.uniq.collect {|x| [x, 1]}]
     @@genres.each do |genre|
       if @@genre_count.include?(genre) == true
-         genre_count[genre] += 1
+         @@genre_count[genre] += 1
        else
-         genre_count[genre] = 1
+         @@genre_count[genre] = 1
       end
     end
     @@genre_count
