@@ -17,8 +17,7 @@ class Song
   end
 
   def self.genres
-    @@genres.uniq.count!
-    binding.pry
+    @@genres.uniq
   end
 
   def self.artists
@@ -26,7 +25,9 @@ class Song
   end
 
   def self.genre_count
-    @@genre_count = Hash[@@genres.collect {|x| [x,""]}]
+    @@genre_count = Hash[@@genres.collect {|x| [x, 1]}]
+    @@genres.each do |genre|
+      if genre_count[genre]
   end
 
   def self.artist_count
